@@ -12,12 +12,12 @@ describe('basic testing for random utils', () => {
   });
 
   it('should return a randomIndex from array', () => {
-      const elements = [2, 5, 7, 2, 7, 1, 3];
+      const elements = [2, 5, 7, 2, 7, 1, 3, 7, 3, 2, 5, 1, 4];
       expect(randomIndex(elements)).to.be.within(0, elements.length - 1);
   });
 
   it('should shuffle values', () => {
-      const elements = [2, 5, 7, 2, 7, 1, 3];
+      const elements = [2, 5, 7, 2, 7, 1, 3, 7, 3, 2, 5, 1, 4];
       const shuffled = shuffle(elements);
 
       expect(shuffled.length).to.equal(elements.length);

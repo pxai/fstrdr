@@ -6,7 +6,7 @@ describe('Testing for Memory class', () => {
     let elements;
 
     beforeEach(() => {
-        elements = new Array(10).fill(0).map((_, i) => i);
+        elements = new Array(100).fill(0).map((_, i) => i);
     });
 
     it('should exist', () => {
@@ -46,7 +46,7 @@ describe('Testing for Memory class', () => {
         const memory = new Memory(elements);
         memory.pick(5);
 
-        expect(memory.isCorrect(45)).to.equal(false);
+        expect(memory.isCorrect(666)).to.equal(false);
         expect(memory.isCorrect(memory.picked[0])).to.equal(true);
     });
 

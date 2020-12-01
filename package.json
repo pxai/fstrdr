@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha test/unit/**/*.spec.js"
+    "test": "npx mocha test/unit/**/*.spec.js",
+    "test:tdd": "npx mocha test/unit/**/*.spec.js --watch"
   },
   "repository": {
     "type": "git",
