@@ -26,7 +26,32 @@ describe('basic testing for random utils', () => {
         const user = new User(name);
 
         expect(user.state).to.deep.equal({
-            name
+            name,
+            exercises: []
+        });
+    });
+
+    describe('exercises', () => {
+        let name, user, exercises;
+
+        beforeEach(() => {
+            name = 'John Doe';
+            user = new User(name);
+        });
+
+        it('should add exercises', () => {
+            expect(user.state).to.deep.equal({
+                name,
+                exercises: []
+            });
+
+            const exercise = { outcome: { outcome: 'ok' } };
+            user.addExercise(exercise);
+
+            expect(user.state).to.deep.equal({
+                name,
+                exercises: [ exercise ]
+            });
         });
     });
 });
