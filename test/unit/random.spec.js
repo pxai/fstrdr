@@ -1,26 +1,32 @@
-const chai = require('chai');
-const expect = chai.expect;
 const { random, randomWithin, randomIndex, shuffle } = require('../../src/random');
 
 describe('basic testing for random utils', () => {
-  it('should return random number', () => {
-      expect(random(5)).to.be.within(0, 5);
+  test('should return random number', () => {
+    const value = random(5);
+    expect(value).toBeGreaterThanOrEqual(0);
+    expect(value).toBeLessThan(5);
   });
 
-  it('should return random number within min and max', () => {
-      expect(randomWithin(3, 10)).to.be.within(3, 10);
+  test('should return random number within min and max', () => {
+      const value = randomWithin(3, 10);
+
+      expect(value).toBeGreaterThanOrEqual(3);
+      expect(value).toBeLessThan(10);
   });
 
-  it('should return a randomIndex from array', () => {
+  test('should return a randomIndex from array', () => {
       const elements = [2, 5, 7, 2, 7, 1, 3, 7, 3, 2, 5, 1, 4];
-      expect(randomIndex(elements)).to.be.within(0, elements.length - 1);
+      const value = randomIndex(elements);
+
+      expect(value).toBeGreaterThanOrEqual(0);
+      expect(value).toBeLessThan(elements.length - 1);
   });
 
-  it('should shuffle values', () => {
+  test('should shuffle values', () => {
       const elements = [2, 5, 7, 2, 7, 1, 3, 7, 3, 2, 5, 1, 4];
       const shuffled = shuffle(elements);
 
-      expect(shuffled.length).to.equal(elements.length);
-      expect(shuffled).to.not.deep.equal(elements);
+      expect(shuffled.length).toEqual(elements.length);
+      expect(shuffled).not.toEqual(elements);
   });
 });
