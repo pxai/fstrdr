@@ -1,13 +1,8 @@
-const chai = require('chai');
-const expect = chai.expect;
 const Exercise = require('../../src/exercise');
 
 describe('Testing for Memory class', () => {
-    beforeEach(() => {
-    });
-
     it('should exist', () => {
-        expect(Exercise).to.exist;
+        expect(Exercise).toExist;
     });
 
     it('should have constructor', () => {
@@ -18,7 +13,7 @@ describe('Testing for Memory class', () => {
         const type = "memory";
         const exercise = new Exercise(type);
 
-        expect(exercise.type).to.equal(type);
+        expect(exercise.type).toEqual(type);
     });
 
     it('should have outcome setter', () => {
@@ -26,7 +21,7 @@ describe('Testing for Memory class', () => {
         const exercise = new Exercise(type);
         exercise.outcome = { outcome: "OK" };
 
-        expect(exercise.outcome.outcome).to.equal("OK");
+        expect(exercise.outcome.outcome).toBe("OK");
     });
 
     it('should have state', () => {
@@ -34,7 +29,7 @@ describe('Testing for Memory class', () => {
         const exercise = new Exercise(type);
         exercise.outcome = { outcome: "OK" };
 
-        expect(exercise.state).to.deep.equal({
+        expect(exercise.state).to.Equal({
           type: "memory",
           outcome: { outcome: "OK" }
         });
