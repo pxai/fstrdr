@@ -1,5 +1,3 @@
-const chai = require('chai');
-const expect = chai.expect;
 const Reader = require('../../src/reader');
 
 describe('Testing for Reader class', () => {
@@ -11,7 +9,7 @@ describe('Testing for Reader class', () => {
     });
 
     it('should exist', () => {
-        expect(Reader).to.exist;
+        expect(Reader).toExist;
     });
 
     it('should have constructor', () => {
@@ -21,19 +19,19 @@ describe('Testing for Reader class', () => {
     it('should have speed getter', () => {
         const reader = new Reader(speed, text);
 
-        expect(reader.speed).to.equal(speed);
+        expect(reader.speed).toEqual(speed);
     });
 
     it('should have text getter', () => {
         const reader = new Reader(speed, text);
 
-        expect(reader.text).to.equal(text);
+        expect(reader.text).toEqual(text);
     });
 
     describe('read', () => {
         it('should read one by one', () => {
             const reader = new Reader(speed, text);
-            expect(reader.read()).to.equal(undefined);
+            expect(reader.read()).toEqual(undefined);
         });
     });
 });
