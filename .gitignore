@@ -1,7 +1,7 @@
 # OSX
 #
 .DS_Store
-
+test/unit/__snapshots__
 # Xcode
 #
 build/
