@@ -172,7 +172,7 @@ export default {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  transform: {},
+  // transform: {},
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
@@ -187,8 +187,15 @@ export default {
   // verbose: undefined,
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
-  watchPathIgnorePatterns: ["/node_modules/"],
+  // watchPathIgnorePatterns: ["/node_modules/"],
 
   // Whether to use watchman for file crawling
   // watchman: true,
+     "preset": "react-native",
+     // "testEnvironment": "node",
+     "transform": {},
+     //"transformIgnorePatterns": [
+    //   "node_modules/(?!variables/.*)"
+     //]
+     "setupFilesAfterEnv" : ["./test/setupTests.js"]
 };
