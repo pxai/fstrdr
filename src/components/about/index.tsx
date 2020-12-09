@@ -12,8 +12,6 @@ interface AboutState {
 export default class About extends Component<AboutProps, AboutState> {
     public constructor (props: AboutProps) {
         super(...arguments);
-
-        this.setState({ version: 1 });
     }
 
     public render (props: AboutProps) {
