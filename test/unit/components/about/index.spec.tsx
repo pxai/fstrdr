@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import About from '../../src/components/about';
+import About from '../../../../src/components/about';
 
 it('renders correctly', () => {
   const tree = renderer.create(<About />).toJSON();
