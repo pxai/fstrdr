@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Router, Route, Link } from './react-router';
 import About from './src/components/about';
 
-const Home = () => <Text>Home</Text>;
+const Home = () => <View><h1>Fst Rdr</h1></View>;
 
 const App = () => (
   <Router>

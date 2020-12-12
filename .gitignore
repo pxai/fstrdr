@@ -2,6 +2,8 @@
 #
 .DS_Store
 test/unit/**/__snapshots__
+cypress/screenshots
+cypress/videos
 # Xcode
 #
 build/
