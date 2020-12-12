@@ -29,7 +29,7 @@ describe('Testing for Memory class', () => {
         const exercise = new Exercise(type);
         exercise.outcome = { outcome: "OK" };
 
-        expect(exercise.state).to.Equal({
+        expect(exercise.state).toEqual({
           type: "memory",
           outcome: { outcome: "OK" }
         });

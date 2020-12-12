@@ -32,7 +32,7 @@
     "ios": "expo start --ios",
     "web": "expo web",
     "eject": "expo eject",
-    "test": "jest"
+    "test": "jest -u"
   },
   "private": true
 }

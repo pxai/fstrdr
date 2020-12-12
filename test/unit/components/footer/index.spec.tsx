@@ -8,9 +8,9 @@ it('renders correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
-it('shows about correctly', () => {
+it('shows footer text correctly', () => {
   const footer = shallow(<Footer />);
 
-  expect(footer.find('Text').length).toBe(1);
-  // expect(footer.find('Text').html()).toEqual('Ja');
+  expect(footer.find('p').length).toBe(1);
+  expect(footer.find('p').text()).toEqual('Fst Rdr');
 });
