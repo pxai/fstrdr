@@ -192,10 +192,10 @@ export default {
   // Whether to use watchman for file crawling
   // watchman: true,
      "preset": "react-native",
-     // "testEnvironment": "node",
+     "testEnvironment": "node",
      "transform": {},
      //"transformIgnorePatterns": [
     //   "node_modules/(?!variables/.*)"
-     //]
+     //],
      "setupFilesAfterEnv" : ["./test/setupTests.js"]
 };

@@ -4,14 +4,14 @@ describe('basic testing for random utils', () => {
   test('should return random number', () => {
     const value = random(5);
     expect(value).toBeGreaterThanOrEqual(0);
-    expect(value).toBeLessThan(5);
+    expect(value).toBeLessThanOrEqual(5);
   });
 
   test('should return random number within min and max', () => {
       const value = randomWithin(3, 10);
 
       expect(value).toBeGreaterThanOrEqual(3);
-      expect(value).toBeLessThan(10);
+      expect(value).toBeLessThanOrEqual(10);
   });
 
   test('should return a randomIndex from array', () => {
@@ -19,7 +19,7 @@ describe('basic testing for random utils', () => {
       const value = randomIndex(elements);
 
       expect(value).toBeGreaterThanOrEqual(0);
-      expect(value).toBeLessThan(elements.length - 1);
+      expect(value).toBeLessThanOrEqual(elements.length - 1);
   });
 
   test('should shuffle values', () => {
