@@ -9,6 +9,7 @@ cache:
     - ~/.cache
 
 install:
-  - npm i
+  - yarn install
+  - yarn add expo-cli
   - $(npm bin)/cypress install
   - npm test
