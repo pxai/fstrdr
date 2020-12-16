@@ -1,0 +1,14 @@
+---
+language: node_js
+node_js:
+  - 14
+cache:
+  npm: true
+  directories:
+    - node_modules
+    - ~/.cache
+
+install:
+  - npm i
+  - $(npm bin)/cypress install
+  - npm test

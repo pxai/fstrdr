@@ -1,4 +1,6 @@
-# [React Router Example](https://reacttraining.com/react-router/web/guides/quick-start)
+# [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+[![Build Status](https://travis-ci.org/pxai/fstrdr.svg?branch=master)]
+(https://travis-ci.org/pxai/fstrdr)
 
 <p>
   <!-- Web -->
