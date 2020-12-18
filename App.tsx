@@ -5,18 +5,26 @@ import About from './src/components/about';
 import Menu from './src/components/menu';
 import Footer from './src/components/footer';
 import './src/i18n';
+import { Context, ContextProps } from './src/context';
+
+const context: ContextProps = {
+    name: 'Fast Reader',
+    version: 0
+};
 
 const Home = () => <View><h1>Fst Rdr</h1></View>;
 
 const App = () => (
-  <Router>
-    <Menu />
-    <View style={styles.container}>
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Footer />
-    </View>
-  </Router>
+  <Context.Provider value={context}>
+    <Router>
+      <Menu />
+      <View style={styles.container}>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Footer />
+      </View>
+    </Router>
+  </Context.Provider>
 );
 
 const styles = StyleSheet.create({
