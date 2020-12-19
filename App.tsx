@@ -6,10 +6,14 @@ import Menu from './src/components/menu';
 import Footer from './src/components/footer';
 import './src/i18n';
 import { Context, ContextProps } from './src/context';
+import Api from './src/api';
 
 const context: ContextProps = {
-    name: 'Fast Reader',
-    version: 0
+    config: {
+        name: 'Fast Reader',
+        version: 0
+    },
+    api: new Api()
 };
 
 const Home = () => <View><h1>Fst Rdr</h1></View>;
