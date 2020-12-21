@@ -1,4 +1,4 @@
-const { random, randomWithin, randomIndex, shuffle } = require('./random');
+const { random, randomWithin, randomIndex, shuffle } = require('../util/random');
 
 class Memory {
   constructor (elements) {

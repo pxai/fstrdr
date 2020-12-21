@@ -1,4 +1,4 @@
-const Exercise = require('../../src/exercise');
+const Exercise = require('../../../src/model/exercise');
 
 describe('Testing for Memory class', () => {
     it('should exist', () => {

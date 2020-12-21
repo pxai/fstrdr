@@ -1,4 +1,4 @@
-const User = require('../../src/user');
+const User = require('../../../src/model/user');
 
 describe('basic testing for random utils', () => {
     it('should exist', () => {

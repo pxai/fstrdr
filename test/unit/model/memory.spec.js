@@ -1,4 +1,4 @@
-const Memory = require('../../src/memory');
+const Memory = require('../../../src/model/memory');
 
 describe('Testing for Memory class', () => {
     let elements;

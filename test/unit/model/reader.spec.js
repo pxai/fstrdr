@@ -1,4 +1,4 @@
-const Reader = require('../../src/reader');
+const Reader = require('../../../src/model/reader');
 
 describe('Testing for Reader class', () => {
     let text, speed;

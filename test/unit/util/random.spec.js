@@ -1,4 +1,4 @@
-const { random, randomWithin, randomIndex, shuffle } = require('../../src/random');
+const { random, randomWithin, randomIndex, shuffle } = require('../../../src/util/random');
 
 describe('basic testing for random utils', () => {
   test('should return random number', () => {
