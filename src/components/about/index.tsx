@@ -21,7 +21,7 @@ export default class About extends Component<AboutProps, AboutState> {
       return (<SafeAreaView style={tailwind('flex-1 items-center justify-center')}>
         <View style={tailwind('bg-blue-500 px-5 py-3 rounded-full')}>
           <Text style={tailwind('text-white font-semibold text-lg')}>
-            Hello Tailwind 👋 {this.context.config.name}
+            <span>Hello Tailwind 👋{this.context.config.name}</span>
           </Text>
           <FontAwesomeIcon icon={faCoffee} size="6x" />
         </View>

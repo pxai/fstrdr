@@ -1,17 +1,29 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { render } from 'enzyme';
 import About from '../../../../src/components/about';
+import { Context, ContextProps } from '../../../../src/context';
 
-it('renders correctly', () => {
-  const tree = renderer.create(<About />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
+describe('About component', () => {
+  let context: ContextProps;
 
-it('shows about correctly', () => {
-  const about = shallow(<About />);
+  beforeEach(() => {
+      context = {
+          config: {
+              name: "sample",
+              version: 666
+          }
+      }
+  });
 
-  expect(about.find('Text').length).toBe(1);
-  const text = about.find('Text');
-  console.log(text, text.text(), text.html());
-});
+  it('renders correctly', () => {
+    const tree = renderer.create(<Context.Provider value={context}><About /></Context.Provider>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('shows about correctly', () => {
+    const about = render(<Context.Provider value={context}><About /></Context.Provider>);
+
+    expect(about.find('Text').length).toEqual(1);
+  });
+})
