@@ -9,6 +9,9 @@ export default function Menu () {
           <a href="/">
             <Text><FontAwesomeIcon icon={faBrain} /><span>Home</span></Text>
           </a>
+          <a href="/memory">
+            <Text><FontAwesomeIcon icon={faBook} /><span>Memory</span></Text>
+          </a>
           <a href="/about">
             <Text><FontAwesomeIcon icon={faBook} /><span>Read</span></Text>
           </a>

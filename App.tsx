@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Router, Route, Link } from './react-router';
 import About from './src/components/about';
+import Memory from './src/components/memory';
 import Menu from './src/components/menu';
 import Footer from './src/components/footer';
 import './src/i18n';
@@ -24,6 +25,7 @@ const App = () => (
       <Menu />
       <View style={styles.container}>
         <Route exact path="/" component={Home} />
+        <Route path="/memory" component={Memory} />
         <Route path="/about" component={About} />
         <Footer />
       </View>
