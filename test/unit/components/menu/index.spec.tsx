@@ -14,9 +14,9 @@ it('shows footer links correctly', () => {
 
 it('shows links', () => {
   const menu = shallow(<Menu />);
-  expect(menu.find('span').length).toEqual(3);
+  expect(menu.find('span').length).toEqual(4);
 
-  ['Home', 'Read', 'Speed'].forEach( (link, i) => {
+  ['Home', 'Memory', 'Read', 'Speed'].forEach( (link, i) => {
       expect(menu.find('span').at(i).text()).toEqual(link);
   });
 });

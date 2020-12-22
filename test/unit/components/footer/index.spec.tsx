@@ -1,16 +1,33 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { render } from 'enzyme';
 import Footer from '../../../../src/components/footer';
+import { Context, ContextProps } from '../../../../src/context';
+import '../../../../src/i18n';
+import Api from '../../../../src/api';
 
-it('renders correctly', () => {
-  const tree = renderer.create(<Footer />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
+describe('Footer componet', () => {
+    let footer, context: ContextProps;
 
-it('shows footer text correctly', () => {
-  const footer = shallow(<Footer />);
+    beforeEach(() => {
+      context = {
+          config: {
+              name: "sample",
+              version: 666
+          },
+          api: new Api()
+      }
+    });
 
-  expect(footer.find('p').length).toBe(1);
-  expect(footer.find('p').text()).toEqual('Fst Rdr');
+    it('renders correctly', () => {
+      const tree = renderer.create(<Context.Provider value={context}><Footer /></Context.Provider>).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('shows footer text correctly', () => {
+      const footer = render(<Context.Provider value={context}><Footer /></Context.Provider>);
+
+      expect(footer.find('p').length).toBe(2);
+      expect(footer.find('p').text()).toMatch(/Fst Rdr Hello ThereThis is a random text/);
+    });
 });
