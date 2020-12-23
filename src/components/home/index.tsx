@@ -3,6 +3,7 @@ import { SafeAreaView, View } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 import useApi from '../../hooks/use_api';
+import Menu from '../menu';
 
 export default function Home () {
       const { t, i18n } = useTranslation();
@@ -20,6 +21,7 @@ export default function Home () {
           <p>
             Fst Rdr {t('home')}
           </p>
+          <Menu />
         </View>
       </SafeAreaView>);
 }
