@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/en/configuration.html
  */
 
-export default {
+module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -193,7 +193,9 @@ export default {
   // watchman: true,
      "preset": "react-native",
      "testEnvironment": "node",
-     "transform": {},
+     "transform": {
+      "\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
      //"transformIgnorePatterns": [
     //   "node_modules/(?!variables/.*)"
      //],

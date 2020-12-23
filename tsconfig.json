@@ -6,6 +6,12 @@
     "moduleResolution": "node",
     "noEmit": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "types": ["jest"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "exclude": [
+      "test"
+    ]
 }
