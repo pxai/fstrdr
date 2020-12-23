@@ -198,6 +198,6 @@ module.exports = {
     },
      //"transformIgnorePatterns": [
     //   "node_modules/(?!variables/.*)"
-     //],
+     //],"preset": "jest-expo"
      "setupFilesAfterEnv" : ["./test/setupTests.js"]
 };
