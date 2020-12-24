@@ -4,6 +4,10 @@ import { Appbar } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 import useApi from '../../hooks/use_api';
 import Menu from '../menu';
+import SignUpForm from '../login/signup';
+import ConfirmForm from '../login/confirm';
+import SignInForm from '../login/signin';
+import SignOut from '../login/signout';
 
 export default function Home () {
       const { t, i18n } = useTranslation();
@@ -21,6 +25,10 @@ export default function Home () {
           <p>
             Fst Rdr {t('home')}
           </p>
+          <SignUpForm />
+          <ConfirmForm />
+          <SignInForm />
+          <SignOut />
           <Menu />
         </View>
       </SafeAreaView>);
