@@ -9,13 +9,15 @@ import Home from './src/components/home';
 import './src/i18n';
 import { Context, ContextProps } from './src/context';
 import Api from './src/api';
+import Auth from './src/api/auth';
 
 const context: ContextProps = {
     config: {
         name: 'Fast Reader',
         version: 0
     },
-    api: new Api()
+    api: new Api(),
+    auth: new Auth()
 };
 
 const App = () => (

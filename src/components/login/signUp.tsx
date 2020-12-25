@@ -6,6 +6,7 @@ import {
 import React from "react";
 import ReactDOM from "react-dom";
 import appConfig from "../../../config/cognito";
+import { Context } from '../../context';
 
 Config.region = appConfig.region;
 Config.credentials = new CognitoIdentityCredentials({
@@ -34,24 +35,16 @@ export default class SignUpForm extends React.Component {
     this.setState({password: e.target.value});
   }
 
-  private handleSubmit(e) {
+  private async handleSubmit(e) {
     e.preventDefault();
     const email = this.state.email.trim();
     const password = this.state.password.trim();
-    const attributeList = [
-      new CognitoUserAttribute({
-        Name: 'email',
-        Value: email,
-      })
-    ];
-    userPool.signUp(email, password, attributeList, null, (err, result) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      console.log('user name is ' + result.user.getUsername());
-      console.log('call result: ' + result);
-    });
+    try {
+      const token = await this.context.auth.signUp(email, password);
+      console.log("SignUp correct!", token);
+    } catch (error) {
+        console.log("Login incorrect, ", error);
+    }
   }
 
   public render () {
@@ -71,3 +64,5 @@ export default class SignUpForm extends React.Component {
     );
   }
 }
+
+SignUpForm.contextType = Context;

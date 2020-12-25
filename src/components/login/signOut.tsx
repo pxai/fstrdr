@@ -1,22 +1,6 @@
-import {Config, CognitoIdentityCredentials} from "aws-sdk";
-import {
-  CognitoUserPool,
-  CognitoUserAttribute,
-  CognitoUser
-} from "amazon-cognito-identity-js";
 import React from "react";
 import ReactDOM from "react-dom";
-import cognitoConfig from "../../../config/cognito";
-
-/*Config.region = appConfig.region;
-Config.credentials = new CognitoIdentityCredentials({
-  IdentityPoolId: appConfig.IdentityPoolId
-});*/
-
-const userPool = new CognitoUserPool({
-  UserPoolId: cognitoConfig.UserPoolId,
-  ClientId: cognitoConfig.ClientId,
-});
+import { Context } from '../../context';
 
 export default class SignOut extends React.Component {
   public constructor(props) {
@@ -25,12 +9,9 @@ export default class SignOut extends React.Component {
 
   private async handleSubmit(e) {
     e.preventDefault();
-    const cognitoUser = new CognitoUser({
-        Username: 'p@pello.io',
-        Pool: userPool
-    });
+
     console.log('Here we go!!');
-    await cognitoUser.signOut();
+    await this.context.auth.signOut();
   }
 
   public render () {
@@ -43,3 +24,5 @@ export default class SignOut extends React.Component {
     );
   }
 }
+
+SignOut.contextType = Context;

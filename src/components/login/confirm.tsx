@@ -1,19 +1,6 @@
-import {Config, CognitoIdentityCredentials } from "aws-sdk";
-import { AuthenticationDetails, CognitoUserPool, CognitoUser, CognitoUserAttribute, IAuthenticationDetailsData } from "amazon-cognito-identity-js";
-
 import React from "react";
 import ReactDOM from "react-dom";
-import cognitoConfig from "../../../config/cognito";
-
-/*Config.region = appConfig.region;
-Config.credentials = new CognitoIdentityCredentials({
-  IdentityPoolId: appConfig.IdentityPoolId
-});*/
-
-const userPool = new CognitoUserPool({
-  UserPoolId: cognitoConfig.UserPoolId,
-  ClientId: cognitoConfig.ClientId,
-});
+import { Context } from '../../context';
 
 export default class ConfirmForm extends React.Component {
   public constructor(props) {
@@ -22,27 +9,22 @@ export default class ConfirmForm extends React.Component {
       code: ''
     };
   }
+
   private handleCodeChange(e) {
     this.setState({code: e.target.value});
   }
 
-  private handleSubmit(e) {
+  private async handleSubmit(e) {
     e.preventDefault();
     const code = this.state.code.trim();
     const email = this.props.email || 'p@pello.io';
 
-    const cognitoUser = new CognitoUser({
-        Username: email,
-        Pool: userPool
-    });
-
-    cognitoUser.confirmRegistration(code, true, function(err, result) {
-    	if (err) {
-    		alert(err.message || JSON.stringify(err));
-    		return;
-    	}
-    	console.log('Confirmed!! call result: ' + result);
-    });
+    try {
+      const result = await this.context.auth.confirm(code, email);
+      console.log("Confirm correct!", result);
+    } catch (error) {
+        console.log("Confirm incorrect, ", error);
+    }
   }
 
   public render () {
@@ -58,3 +40,5 @@ export default class ConfirmForm extends React.Component {
     );
   }
 }
+
+ConfirmForm.contextType = Context;
