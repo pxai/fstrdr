@@ -1,35 +1,36 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 import useApi from '../../hooks/use_api';
-import Menu from '../menu';
 import SignUpForm from '../login/signup';
 import ConfirmForm from '../login/confirm';
 import SignInForm from '../login/signin';
 import SignOut from '../login/signout';
+import { withTranslation } from 'react-i18next';
+import { Context } from '../../context';
 
-export default function Home () {
-      const { t, i18n } = useTranslation();
-      const { randomText } = useApi();
-      const _handleUser = () => void(0);
-      const _handleOptions = () => void(0);
-
-      return (<SafeAreaView>
-        <Appbar.Header>
-          <Appbar.Content title={t('project')} subtitle={t('subtitle')} />
-          <Appbar.Action icon="book" onPress={_handleUser} />
-          <Appbar.Action icon="dots-vertical" onPress={_handleOptions} />
-        </Appbar.Header>
-        <View>
-          <p>
-            Fst Rdr {t('home')}
-          </p>
-          <SignUpForm />
-          <ConfirmForm />
-          <SignInForm />
-          <SignOut />
-          <Menu />
-        </View>
-      </SafeAreaView>);
+class Home extends Component {
+      public render() {
+        const { t } = this.props;
+        console.log("Context: ", this.context, this.context.auth.loggedIn);
+        /*
+        <SignUpForm />
+        <ConfirmForm />
+        <SignInForm />
+        <SignOut />
+        */
+        return (<SafeAreaView>
+          <View>
+            <p>
+              Fst Rdr {t('hello')} { this.context.auth.loggedIn ? `OK` : `nope `}
+              { this.context.loggedIn ? `YEAH` : `nasti `}
+            </p>
+            <div>This is home</div>
+          </View>
+        </SafeAreaView>);
+      }
 }
+
+Home.contextType = Context;
+export default withTranslation()(Home);

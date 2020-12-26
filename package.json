@@ -14,9 +14,10 @@
     "react-native-paper": "^4.5.0",
     "react-native-web": "~0.13.12",
     "react-router-dom": "5.1.2",
-    "react-router-native": "5.1.2",
+    "react-router-native": "^5.2.0",
     "styled-components": "^5.1.0",
-    "tailwind-rn": "^1.1.0"
+    "tailwind-rn": "^1.1.0",
+    "webpack": "^5.11.1"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",

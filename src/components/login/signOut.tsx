@@ -10,7 +10,7 @@ export default class SignOut extends React.Component {
   private async handleSubmit(e) {
     e.preventDefault();
 
-    console.log('Here we go!!');
+    console.log('Here we go!! ', this.context.auth.loggedIn);
     await this.context.auth.signOut();
   }
 

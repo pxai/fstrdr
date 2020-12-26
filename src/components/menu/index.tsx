@@ -6,18 +6,18 @@ import { faBrain, faBook, faBolt } from '@fortawesome/free-solid-svg-icons'
 
 export default function Menu () {
       return (<View style={styles.nav}>
-          <a href="/">
+          <Link to="/">
             <Text><FontAwesomeIcon icon={faBrain} /><span>Home</span></Text>
-          </a>
-          <a href="/memory">
+          </Link>
+          <Link to="/memory">
             <Text><FontAwesomeIcon icon={faBook} /><span>Memory</span></Text>
-          </a>
-          <a href="/about">
+          </Link>
+          <Link to="/about">
             <Text><FontAwesomeIcon icon={faBook} /><span>Read</span></Text>
-          </a>
-          <a href="/about">
+          </Link>
+          <Link to="/about">
             <Text><FontAwesomeIcon icon={faBolt} /><span>Speed</span></Text>
-          </a>
+          </Link>
       </View>);
 }
 

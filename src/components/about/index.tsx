@@ -23,6 +23,7 @@ export default class About extends Component<AboutProps, AboutState> {
           <Text style={tailwind('text-white font-semibold text-lg')}>
             <span>Hello Tailwind 👋{this.context.config.name}</span>
           </Text>
+            { this.context.auth.loggedIn ? `Logged in` : `out `}
           <FontAwesomeIcon icon={faCoffee} size="6x" />
         </View>
       </SafeAreaView>);

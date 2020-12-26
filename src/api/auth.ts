@@ -14,12 +14,18 @@ Config.credentials = new CognitoIdentityCredentials({
   IdentityPoolId: cognitoConfig.IdentityPoolId
 });
 
+const defaultPool = new CognitoUserPool({
+  UserPoolId: cognitoConfig.UserPoolId,
+  ClientId: cognitoConfig.ClientId,
+});
+
 export default class Auth {
-    public constructor () {
-       this.userPool = new CognitoUserPool({
-         UserPoolId: cognitoConfig.UserPoolId,
-         ClientId: cognitoConfig.ClientId,
-       });
+    private accessToken;
+    private _user;
+
+    public constructor (userPool: CognitoUserPool = defaultPool) {
+       this.userPool = userPool;
+       console.log("NEW INSTANCE!!");
     }
 
     private cognitoUser (email: string, userPool: Pool) {
@@ -30,6 +36,8 @@ export default class Auth {
     }
 
     public get loggedIn (): boolean {
+        console.log("Do we have token? ", this.accessToken, !!this.accessToken);
+                console.log("And a user? ", this.user);
         return !!this.accessToken;
     }
 
@@ -54,7 +62,7 @@ export default class Auth {
         return new Promise((resolve, reject) => this.user.authenticateUser(authDetails, {
                     onSuccess: (result) => {
                         this.accessToken = result.getAccessToken();
-                        console.log("Logged in: ", this._user, result);
+                        console.log("Logged in: ", this._user, "token: ", this.accessToken, " and: ", this.loggedIn);
                         resolve(this.accessToken);
                     },
                     onFailure: (reject) => {
@@ -100,7 +108,14 @@ export default class Auth {
     }
 
     public signOut (): Promise<any> {
-      this.user.signOut();
+      if (this.user) {
+          console.log("Logging out: ", this._user);
+          this.user.signOut();
+          this.accessToken = null;
+      } else {
+          console.log("User is null men ", this._user);
+      }
+
       this.user = null;
     }
 }
