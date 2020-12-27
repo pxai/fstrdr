@@ -1,4 +1,5 @@
-const Exercise = require('../../../src/model/exercise');
+import { expect } from 'chai';
+import Exercise from '../../../src/model/exercise';
 
 describe('Testing for Memory class', () => {
     it('should exist', () => {
@@ -6,14 +7,14 @@ describe('Testing for Memory class', () => {
     });
 
     it('should have constructor', () => {
-        const exercise = new Exercise();
+        const exercise = new Exercise("");
     });
 
     it('should have type field', () => {
         const type = "memory";
         const exercise = new Exercise(type);
 
-        expect(exercise.type).toEqual(type);
+        expect(exercise.type).to.equal(type);
     });
 
     it('should have outcome setter', () => {
@@ -21,7 +22,7 @@ describe('Testing for Memory class', () => {
         const exercise = new Exercise(type);
         exercise.outcome = { outcome: "OK" };
 
-        expect(exercise.outcome.outcome).toBe("OK");
+        expect(exercise.outcome.outcome).to.equal("OK");
     });
 
     it('should have state', () => {
@@ -29,7 +30,7 @@ describe('Testing for Memory class', () => {
         const exercise = new Exercise(type);
         exercise.outcome = { outcome: "OK" };
 
-        expect(exercise.state).toEqual({
+        expect(exercise.state).to.deep.equal({
           type: "memory",
           outcome: { outcome: "OK" }
         });

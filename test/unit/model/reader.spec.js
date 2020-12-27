@@ -1,3 +1,4 @@
+import expect from 'expect';
 const Reader = require('../../../src/model/reader');
 
 describe('Testing for Reader class', () => {

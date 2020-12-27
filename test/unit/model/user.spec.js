@@ -1,3 +1,4 @@
+import expect from 'expect';
 const User = require('../../../src/model/user');
 
 describe('basic testing for random utils', () => {
