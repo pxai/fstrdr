@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { SafeAreaView, View, Text } from 'react-native';
 import tailwind from 'tailwind-rn';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

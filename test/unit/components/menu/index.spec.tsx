@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { render } from 'enzyme';
 import Menu from '../../../../src/components/menu';
 
 it('renders correctly', () => {
@@ -9,11 +9,11 @@ it('renders correctly', () => {
 });
 
 it('shows footer links correctly', () => {
-  const menu = shallow(<Menu />);
+  const menu = render(<Menu />);
 });
 
 it('shows links', () => {
-  const menu = shallow(<Menu />);
+  const menu = render(<Menu />);
   expect(menu.find('span').length).toEqual(4);
 
   ['Home', 'Memory', 'Read', 'Speed'].forEach( (link, i) => {

@@ -15,7 +15,10 @@ describe('Footer componet', () => {
               name: "sample",
               version: 666
           },
-          api: new Api()
+          api: new Api(),
+          auth: {
+            loggedIn: true
+          }
       }
     });
 

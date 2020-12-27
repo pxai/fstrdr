@@ -10,7 +10,7 @@ export default function Footer () {
       const { t, i18n } = useTranslation();
       const { randomText } = useApi();
       const { auth } =  useContext(Context);
-      console.log("This is it");
+
       return (<SafeAreaView>
         <View>
           <p>

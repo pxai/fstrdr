@@ -1,6 +1,6 @@
 const Auth = require('../../../src/api/auth');
 
-describe('Testing for Auth class', () => {
+describe.skip('Testing for Auth class', () => {
     let user, userPool;
 
     beforeEach(() => {

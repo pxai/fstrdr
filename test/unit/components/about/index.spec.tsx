@@ -12,6 +12,9 @@ describe('About component', () => {
           config: {
               name: "sample",
               version: 666
+          },
+          auth: {
+            loggedIn: true
           }
       }
   });
