@@ -10,7 +10,7 @@ describe('Testing for i18n functionality', () => {
 
     it('should translate', () => {
         const MyComponent = function Component () {
-            expect(useTranslation().t('hello')).toEqual('Hello There');
+            expect(useTranslation().t('hello')).to.equal('Hello There');
         };
 
         shallow(< MyComponent />);

@@ -26,7 +26,7 @@ describe.skip('Testing for Auth class', () => {
         const auth = new Auth({});
         auth.user = { name: "Pello" };
 
-        expect(auth.user.name).toEqual("Pello");
+        expect(auth.user.name).to.equal("Pello");
     });
 
     describe('signin', () => {

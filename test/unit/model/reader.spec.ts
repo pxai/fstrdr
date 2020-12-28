@@ -1,5 +1,5 @@
-import expect from 'expect';
-const Reader = require('../../../src/model/reader');
+import { expect } from 'chai';
+import Reader from '../../../src/model/reader';
 
 describe('Testing for Reader class', () => {
     let text, speed;
@@ -10,29 +10,29 @@ describe('Testing for Reader class', () => {
     });
 
     it('should exist', () => {
-        expect(Reader).toExist;
+        expect(Reader).to.exist;
     });
 
     it('should have constructor', () => {
-        const reader = new Reader();
+        const reader = new Reader(speed, text);
     });
 
     it('should have speed getter', () => {
         const reader = new Reader(speed, text);
 
-        expect(reader.speed).toEqual(speed);
+        expect(reader.speed).to.equal(speed);
     });
 
     it('should have text getter', () => {
         const reader = new Reader(speed, text);
 
-        expect(reader.text).toEqual(text);
+        expect(reader.text).to.equal(text);
     });
 
     describe('read', () => {
         it('should read one by one', () => {
             const reader = new Reader(speed, text);
-            expect(reader.read()).toEqual(undefined);
+            expect(reader.read()).to.equal(undefined);
         });
     });
 });

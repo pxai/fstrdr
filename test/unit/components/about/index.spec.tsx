@@ -27,6 +27,6 @@ describe('About component', () => {
   it('shows about correctly', () => {
     const about = render(<Context.Provider value={context}><About /></Context.Provider>);
 
-    expect(about.find('Text').length).toEqual(1);
+    expect(about.find('Text').length).to.equal(1);
   });
 })

@@ -12,6 +12,6 @@ describe('Testing for Api class', () => {
     it('should return random Text', () => {
         const api = new Api();
 
-        expect(api.randomText()).toEqual('This is a random text\nThat should be enough\hRight?\n');
+        expect(api.randomText()).to.equal('This is a random text\nThat should be enough\hRight?\n');
     });
 });

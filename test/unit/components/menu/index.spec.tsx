@@ -15,9 +15,9 @@ it('shows footer links correctly', () => {
 
 it('shows links', () => {
   const menu = render(<Menu />);
-  expect(menu.find('span').length).toEqual(4);
+  expect(menu.find('span').length).to.equal(4);
 
   ['Home', 'Memory', 'Read', 'Speed'].forEach( (link, i) => {
-      expect(menu.find('span').at(i).text()).toEqual(link);
+      expect(menu.find('span').at(i).text()).to.equal(link);
   });
 });

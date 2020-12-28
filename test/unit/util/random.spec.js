@@ -27,7 +27,7 @@ describe('basic testing for random utils', () => {
       const elements = [2, 5, 7, 2, 7, 1, 3, 7, 3, 2, 5, 1, 4];
       const shuffled = shuffle(elements);
 
-      expect(shuffled.length).toEqual(elements.length);
-      expect(shuffled).not.toEqual(elements);
+      expect(shuffled.length).to.equal(elements.length);
+      expect(shuffled).not.to.equal(elements);
   });
 });

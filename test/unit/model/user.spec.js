@@ -14,14 +14,14 @@ describe('basic testing for random utils', () => {
         const name = 'John Doe';
         const user = new User(name);
 
-        expect(user.name).toEqual(name);
+        expect(user.name).to.equal(name);
     });
 
     it('should have state', () => {
         const name = 'John Doe';
         const user = new User(name);
 
-        expect(user.state).toEqual({
+        expect(user.state).to.equal({
             name,
             exercises: []
         });
@@ -36,7 +36,7 @@ describe('basic testing for random utils', () => {
         });
 
         it('should add exercises', () => {
-            expect(user.state).toEqual({
+            expect(user.state).to.equal({
                 name,
                 exercises: []
             });
@@ -44,7 +44,7 @@ describe('basic testing for random utils', () => {
             const exercise = { outcome: { outcome: 'ok' } };
             user.addExercise(exercise);
 
-            expect(user.state).toEqual({
+            expect(user.state).to.equal({
                 name,
                 exercises: [ exercise ]
             });
