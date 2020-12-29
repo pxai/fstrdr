@@ -1,13 +1,13 @@
-import expect from 'expect';
-const User = require('../../../src/model/user');
+import { expect } from 'chai';
+import User from '../../../src/model/user';
 
 describe('basic testing for random utils', () => {
     it('should exist', () => {
-        expect(User).toExist;
+        expect(User).to.exist;
     });
 
     it('should have constructor', () => {
-        const user = new User();
+        const user = new User('John Doe');
     });
 
     it('should have name', () => {
@@ -21,7 +21,7 @@ describe('basic testing for random utils', () => {
         const name = 'John Doe';
         const user = new User(name);
 
-        expect(user.state).to.equal({
+        expect(user.state).to.deep.equal({
             name,
             exercises: []
         });
@@ -36,7 +36,7 @@ describe('basic testing for random utils', () => {
         });
 
         it('should add exercises', () => {
-            expect(user.state).to.equal({
+            expect(user.state).to.deep.equal({
                 name,
                 exercises: []
             });
@@ -44,7 +44,7 @@ describe('basic testing for random utils', () => {
             const exercise = { outcome: { outcome: 'ok' } };
             user.addExercise(exercise);
 
-            expect(user.state).to.equal({
+            expect(user.state).to.deep.equal({
                 name,
                 exercises: [ exercise ]
             });

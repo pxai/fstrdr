@@ -1,23 +1,24 @@
-class User {
-    constructor (name) {
+export default class User {
+    private _name: string;
+    private _exercises: any[];
+
+    public constructor (name: string) {
         this._name = name;
         this._exercises = [];
     }
 
-    get name () {
+    public get name (): string {
         return this._name;
     }
 
-    get state () {
+    public get state (): any {
         return {
             name: this._name,
             exercises: this._exercises
         };
     }
 
-    addExercise (exercise) {
+    public addExercise (exercise: any) {
         this._exercises.push(exercise);
     }
 }
-
-module.exports = User;
