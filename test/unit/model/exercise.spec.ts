@@ -3,7 +3,7 @@ import Exercise from '../../../src/model/exercise';
 
 describe('Testing for Memory class', () => {
     it('should exist', () => {
-        expect(Exercise).toExist;
+        expect(Exercise).to.exist;
     });
 
     it('should have constructor', () => {

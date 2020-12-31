@@ -15,4 +15,4 @@ const shuffle = list => {
     return shuffled;
 };
 
-module.exports = { random, randomWithin, randomIndex, shuffle };
+export { random, randomWithin, randomIndex, shuffle };

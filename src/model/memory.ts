@@ -12,7 +12,7 @@ export default class Memory {
       return this._elements;
   }
 
-  public shuffle (): void {
+  public shuffle (): any[] {
       return shuffle(this._elements);
   }
 
