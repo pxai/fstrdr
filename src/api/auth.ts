@@ -22,9 +22,10 @@ const defaultPool = new CognitoUserPool({
 export default class Auth {
     private accessToken;
     private _user;
+    private _userPool: CognitoUserPool;
 
     public constructor (userPool: CognitoUserPool = defaultPool) {
-       this.userPool = userPool;
+       this._userPool = userPool;
        console.log("NEW INSTANCE!!");
     }
 
@@ -54,7 +55,7 @@ export default class Auth {
     }
 
     public signIn(email: string, password: string): Promise<any> {
-        this.user = this.cognitoUser(email, this.userPool);
+        this.user = this.cognitoUser(email, this._userPool);
 
         const credentials: IAuthenticationDetailsData = { Username: email, Password: password };
         const authDetails: AuthenticationDetails = new AuthenticationDetails(credentials);
@@ -80,7 +81,7 @@ export default class Auth {
           })
         ];
 
-        return new Promise((resolve, reject) => this.userPool.signUp(email, password, attributeList, null, (err, result) => {
+        return new Promise((resolve, reject) => this._userPool.signUp(email, password, attributeList, null, (err, result) => {
             if (err) {
               console.log(err);
               reject(err);
@@ -94,7 +95,7 @@ export default class Auth {
     }
 
     public confirm (code: string, email: string): Promise<any> {
-      this.user = this.cognitoUser(email, this.userPool);
+      this.user = this.cognitoUser(email, this._userPool);
 
       return new Promise((resolve, reject) => this.user.confirmRegistration(code, true, function(err, result) {
           	if (err) {

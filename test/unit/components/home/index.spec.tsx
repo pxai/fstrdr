@@ -27,8 +27,8 @@ describe('Home componet', () => {
     it('shows header correctly', () => {
       const home = render(<Context.Provider value={context}><Home /></Context.Provider>);
 
-      // expect(home.find('Appbar.Header').length).to.equal(1);
-      // expect(home.find('Appbar.Content').length).to.equal(1);
-      // expect(home.find('Appbar.Action').length).to.equal(2);
+      // expect(home.find('Appbar.Header').length).toEqual(1);
+      // expect(home.find('Appbar.Content').length).toEqual(1);
+      // expect(home.find('Appbar.Action').length).toEqual(2);
     });
 });

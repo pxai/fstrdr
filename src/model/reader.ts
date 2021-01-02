@@ -19,12 +19,12 @@ export default class Reader {
         this.readLine(this._text.split("\n").slice());
     }
 
-    private readLine(lines) {
+    private async readLine(lines) {
       setTimeout(() => {
           if (lines.length > 0) {
-            console.log(lines.shift());
+            // console.log(lines.shift());
             this.readLine(lines);
           }
-      }, this._speed * 1000 );
+      }, this._speed * 1 );
     }
 }

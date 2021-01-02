@@ -16,10 +16,10 @@ it('shows footer links correctly', () => {
 
 it('shows links', () => {
   const menu = mount(<Menu />);
-  expect(menu.find('span').length).to.equal(4);
+  expect(menu.find('span').length).toEqual(4);
 
   ['Home', 'Memory', 'Read', 'Speed'].forEach( (link, i) => {
-      //expect(menu.find('span').at(i).text()).to.equal(link);
+      //expect(menu.find('span').at(i).text()).toEqual(link);
       console.log(i);
   });
 });

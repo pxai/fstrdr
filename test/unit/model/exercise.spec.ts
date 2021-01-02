@@ -1,9 +1,8 @@
-import { expect } from 'chai';
 import Exercise from '../../../src/model/exercise';
 
 describe('Testing for Memory class', () => {
     it('should exist', () => {
-        expect(Exercise).to.exist;
+        expect(Exercise).toExist;
     });
 
     it('should have constructor', () => {
@@ -14,7 +13,7 @@ describe('Testing for Memory class', () => {
         const type = "memory";
         const exercise = new Exercise(type);
 
-        expect(exercise.type).to.equal(type);
+        expect(exercise.type).toEqual(type);
     });
 
     it('should have outcome setter', () => {
@@ -22,7 +21,7 @@ describe('Testing for Memory class', () => {
         const exercise = new Exercise(type);
         exercise.outcome = { outcome: "OK" };
 
-        expect(exercise.outcome.outcome).to.equal("OK");
+        expect(exercise.outcome.outcome).toEqual("OK");
     });
 
     it('should have state', () => {
@@ -30,7 +29,7 @@ describe('Testing for Memory class', () => {
         const exercise = new Exercise(type);
         exercise.outcome = { outcome: "OK" };
 
-        expect(exercise.state).to.deep.equal({
+        expect(exercise.state).toEqual({
           type: "memory",
           outcome: { outcome: "OK" }
         });
