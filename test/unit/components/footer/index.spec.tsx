@@ -23,7 +23,7 @@ describe('Footer componet', () => {
     });
 
     it('renders correctly', () => {
-      const tree = renderer.create(<Context.Provider value={context}><Footer /></Context.Provider>).toJSON();
+      const tree = renderer.create(<Footer />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
@@ -31,6 +31,6 @@ describe('Footer componet', () => {
       const footer = render(<Context.Provider value={context}><Footer /></Context.Provider>);
 
       expect(footer.find('p').length).toBe(2);
-      expect(footer.find('p').text()).toMatch(/Fst Rdr Hello ThereThis is a random text/);
+      expect(footer.find('p').text()).toMatch("Fst Rdr Foot Hello ThereFooter");
     });
 });

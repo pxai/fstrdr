@@ -5,6 +5,7 @@ import Home from '../../../../src/components/home';
 import { Context, ContextProps } from '../../../../src/context';
 import '../../../../src/i18n';
 import Api from '../../../../src/api';
+import FakeAuth from '../../../../src/api/fake_auth';
 
 describe('Home componet', () => {
     let footer, context: ContextProps;
@@ -15,7 +16,8 @@ describe('Home componet', () => {
               name: "sample",
               version: 666
           },
-          api: new Api()
+          api: new Api(),
+          auth: new FakeAuth({})
       }
     });
 

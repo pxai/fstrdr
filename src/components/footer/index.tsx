@@ -1,15 +1,12 @@
 import React, { Component, useContext } from "react";
 import { SafeAreaView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import useApi from '../../hooks/use_api';
-import useAuth from '../../hooks/use_auth';
 import { Context } from '../../context';
-import Menu from '../menu';
+import { withTranslation } from 'react-i18next';
 
-export default function Footer () {
-      const { t, i18n } = useTranslation();
-      const { randomText } = useApi();
-      const { auth } =  useContext(Context);
+class Footer extends Component {
+    public render () {
+      const { t } = this.props;
 
       return (<SafeAreaView>
         <View>
@@ -17,9 +14,11 @@ export default function Footer () {
             Fst Rdr Foot {t('hello')}
           </p>
           <p>
-            {randomText()} and: {auth.user} or: { auth.loggedIn ? `OK` : `nope `}
+            Footer
           </p>
-          <Menu />
         </View>
       </SafeAreaView>);
+    }
+
 }
+export default withTranslation()(Footer);
