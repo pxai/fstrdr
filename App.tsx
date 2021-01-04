@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Router, Route, Link } from './react-router';
-import { Redirect } from 'react-router-dom';
 import About from './src/components/about';
 import Memory from './src/components/memory';
 import Menu from './src/components/menu';
@@ -12,6 +10,7 @@ import { Context, ContextProps } from './src/context';
 import Api from './src/api';
 import Auth from './src/api/auth';
 import Page from './src/components/page';
+import RootStack from './src/navigation';
 
 const App = () => {
   const [ loggedIn, setLogged ] = useState(false);
@@ -27,23 +26,7 @@ const App = () => {
   };
 
   return(<Context.Provider value={context}>
-    <Router>
-        <Route exact path="/">
-          <Page>
-                <Home path="/" style={styles.container} />
-          </Page>
-        </Route>
-        <Route exact path="/memory">
-          <Page>
-                <Memory />
-          </Page>
-        </Route>
-        <Route exact path="/about">
-          <Page>
-                <About />
-          </Page>
-        </Route>
-    </Router>
+    <RootStack />
   </Context.Provider>
 )};
 

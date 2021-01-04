@@ -9,6 +9,7 @@ import SignInForm from '../login/signin';
 import SignOut from '../login/signout';
 import { withTranslation } from 'react-i18next';
 import { Context } from '../../context';
+import Menu from '../menu';
 
 class Home extends Component {
       public render() {
@@ -27,6 +28,7 @@ class Home extends Component {
               { this.context.loggedIn ? `YEAH` : `nasti `}
             </p>
             <div>This is home</div>
+            <Menu navigation={this.props.navigation} />
           </View>
         </SafeAreaView>);
       }
