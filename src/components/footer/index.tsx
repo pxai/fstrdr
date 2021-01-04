@@ -3,6 +3,7 @@ import { SafeAreaView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { Context } from '../../context';
 import { withTranslation } from 'react-i18next';
+import Menu from '../menu';
 
 class Footer extends Component {
     public render () {
@@ -16,6 +17,7 @@ class Footer extends Component {
           <p>
             Footer
           </p>
+          <Menu />
         </View>
       </SafeAreaView>);
     }

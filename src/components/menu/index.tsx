@@ -4,23 +4,22 @@ import { Link } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBrain, faBook, faBolt } from '@fortawesome/free-solid-svg-icons'
 
-export default class Menu extends Component {
-  public render () {
-    return (<View style={styles.nav}>
-        <Link to="/">
+export default function Menu () {
+    return (
+      <View style={styles.nav}>
+        <a href="/">
           <Text><FontAwesomeIcon icon={faBrain} /><span>Home</span></Text>
-        </Link>
-        <Link to="/memory">
+        </a>
+        <a href="/memory">
           <Text><FontAwesomeIcon icon={faBook} /><span>Memory</span></Text>
-        </Link>
-        <Link to="/about">
+        </a>
+        <a href="/about">
           <Text><FontAwesomeIcon icon={faBook} /><span>Read</span></Text>
-        </Link>
-        <Link to="/about">
+        </a>
+        <a href="/about">
           <Text><FontAwesomeIcon icon={faBolt} /><span>Speed</span></Text>
-        </Link>
+        </a>
     </View>);
-  }
 }
 
 const styles = StyleSheet.create({

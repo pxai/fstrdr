@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 export default function Memory () {
   const { t, i18n } = useTranslation();
   return (<SafeAreaView>
-    <div>THIS IS MEMORY</div>
+    <div>{t('memory')}</div>
     </SafeAreaView>
   );
 };
