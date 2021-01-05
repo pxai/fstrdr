@@ -43,7 +43,7 @@
     "ios": "expo start --ios",
     "web": "expo web",
     "eject": "expo eject",
-    "unit": "jest test/unit",
+    "unit": "jest -u test/unit",
     "test": "npm run-script unit && npm run-script e2e",
     "cypress:open": "npx cypress open",
     "cypress:run": "npx cypress run",

@@ -31,6 +31,6 @@ describe('Memory component', () => {
   it('shows text correctly', () => {
     const memory = render(<Context.Provider value={context}><Memory /></Context.Provider>);
 
-    expect(memory.find('div').text()).toEqual("THIS IS MEMORY");
+    expect(memory.find('div').text()).toEqual("memory");
   });
 });
