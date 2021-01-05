@@ -17,7 +17,6 @@ class Footer extends Component {
           <p>
             Footer
           </p>
-          <Menu />
         </View>
       </SafeAreaView>);
     }

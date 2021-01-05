@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Page from './components/page';
 import Home from './components/home';
 import Memory from './components/memory';
 import About from './components/about';
@@ -14,11 +15,9 @@ export default function RootStack() {
       initialRouteName="Home"
       screenOptions={{ gestureEnabled: false }}
     >
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{ title: 'My app' }}
-      />
+      <Stack.Screen name="Home" options={{ title: 'Home' }}>
+      {props => <Page><Home {...props} /></Page>}
+      </Stack.Screen>
       <Stack.Screen
         name="Memory"
         component={Memory}

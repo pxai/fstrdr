@@ -25,12 +25,8 @@ export default class Page extends Component<PageProps, {}> {
             return <Redirect to="/" />;
         }
 
-        return (<SafeAreaView><Header />
+        return (<SafeAreaView>
           {this.normalizedChildren().map(child => {
-              /*if (child.props) {
-                  child.props = { ...child.props, ...matches };
-              }*/
-
               return child;
           })}
           <Footer />

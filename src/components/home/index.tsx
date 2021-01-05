@@ -13,8 +13,8 @@ import Menu from '../menu';
 
 class Home extends Component {
       public render() {
-        const { t } = this.props;
-        console.log("Context: ", this.context, this.context.auth.loggedIn);
+        const { t , user } = this.props;
+        console.log("Context: ", this.context, "Me: ", user);
         /*
         <SignUpForm />
         <ConfirmForm />

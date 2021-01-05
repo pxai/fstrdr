@@ -12,6 +12,6 @@ describe.only("Main Content", function() {
   });
 
   it("shows Header title", () => {
-    cy.get("h1").should("have.text", "project")
+    cy.get("h1").should("have.text", "Home")
   });
 });

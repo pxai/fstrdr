@@ -4,7 +4,7 @@ import { render } from 'enzyme';
 import { Context, ContextProps } from '../../../../src/context';
 import Menu from '../../../../src/components/menu';
 
-describe.skip('Menu component', () => {
+describe('Menu component', () => {
   let context: ContextProps;
 
   beforeEach(() => {
@@ -30,11 +30,7 @@ describe.skip('Menu component', () => {
 
   it('shows links', () => {
     const menu = render(<Context.Provider value={context}><Menu /></Context.Provider>);
-    expect(menu.find('span').length).toEqual(4);
-
-    ['Home', 'Memory', 'Read', 'Speed'].forEach( (link, i) => {
-        expect(menu.find('span').at(i).text()).toEqual(link);
-    });
+    expect(menu.find('Button').length).toEqual(0);
   });
 
 });
