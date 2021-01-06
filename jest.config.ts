@@ -4,7 +4,7 @@ import type {Config} from '@jest/types';
 const config: Config.InitialOptions = {
   verbose: true,
   preset: 'jest-react-native',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   setupFiles: ['./test/setupTests.js']
 };
 export default config;

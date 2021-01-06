@@ -11,16 +11,12 @@ import { withTranslation } from 'react-i18next';
 import { Context } from '../../context';
 import Menu from '../menu';
 
+
 class Home extends Component {
       public render() {
         const { t , user } = this.props;
         console.log("Context: ", this.context, "Me: ", user);
-        /*
-        <SignUpForm />
-        <ConfirmForm />
-        <SignInForm />
-        <SignOut />
-        */
+
         return (<SafeAreaView>
           <View>
             <p>
@@ -28,6 +24,10 @@ class Home extends Component {
               { this.context.loggedIn ? `YEAH` : `nasti `}
             </p>
             <div>This is home</div>
+            <SignUpForm />
+            <ConfirmForm />
+            <SignInForm />
+            <SignOut />
             <Menu navigation={this.props.navigation} />
           </View>
         </SafeAreaView>);

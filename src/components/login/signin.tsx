@@ -28,9 +28,9 @@ export default class SignInForm extends Component {
       try {
         const result = await this.context.auth.signIn(email, password);
         this.context.setLogged(true);
-        console.log("SignUp correct!", result);
+        console.log("SignIn correct!", result);
       } catch (error) {
-          console.log("SignUp incorrect, ", error);
+          console.log("SignIn incorrect, ", error);
       }
   }
 

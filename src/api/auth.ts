@@ -6,8 +6,10 @@ import {
   AuthenticationDetails,
   IAuthenticationDetailsData
 } from "amazon-cognito-identity-js";
+import 'amazon-cognito-js';
 import cognitoConfig from "../../config/cognito";
 import User from '../model/user';
+import Dataset from './dataset';
 
 Config.region = cognitoConfig.region;
 Config.credentials = new CognitoIdentityCredentials({
@@ -23,10 +25,36 @@ export default class Auth {
     private accessToken;
     private _user;
     private _userPool: CognitoUserPool;
+    private client;
+    private _dataset: Dataset;
 
     public constructor (userPool: CognitoUserPool = defaultPool) {
        this._userPool = userPool;
-       console.log("NEW INSTANCE!!");
+       this.initSync();
+    }
+
+    private initSync(): void {
+      AWS.config.region = cognitoConfig.region;
+
+      AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+          IdentityPoolId: cognitoConfig.IdentityPoolId
+      });
+    }
+
+    private openSync(): void {
+      AWS.config.credentials.get(this.openDataset());
+    }
+
+    private openDataset(): void {
+      this.client = new AWS.CognitoSyncManager();
+      console.log("Ready to open or create dataset");
+      this.client.openOrCreateDataset('fstrdr_dataset', (err, dataset) => {
+        this._dataset = new Dataset(dataset, 'fstrdr');
+      });
+    }
+
+    public get dataset(): Dataset {
+        return this._dataset;
     }
 
     private cognitoUser (email: string, userPool: Pool) {
@@ -37,8 +65,6 @@ export default class Auth {
     }
 
     public get loggedIn (): boolean {
-        console.log("Do we have token? ", this.accessToken, !!this.accessToken);
-                console.log("And a user? ", this.user);
         return !!this.accessToken;
     }
 
@@ -64,6 +90,7 @@ export default class Auth {
                     onSuccess: (result) => {
                         this.accessToken = result.getAccessToken();
                         console.log("Logged in: ", this._user, "token: ", this.accessToken, " and: ", this.loggedIn);
+                        this.openSync();
                         resolve(this.accessToken);
                     },
                     onFailure: (reject) => {
