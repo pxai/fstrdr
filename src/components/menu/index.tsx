@@ -8,12 +8,16 @@ export default function Menu ({navigation}) {
     return (
       <View style={styles.nav}>
         <Button
-          title="Home"
-          onPress={() => navigation.navigate('Home')}
-        />
-        <Button
           title="Memory"
           onPress={() => navigation.navigate('Memory')}
+        />
+        <Button
+          title="Bookmarks"
+          onPress={() => navigation.navigate('Bookmarks')}
+        />
+        <Button
+          title="Reader"
+          onPress={() => navigation.navigate('Reader')}
         />
         <Button
           title="About"
