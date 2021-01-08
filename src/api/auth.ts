@@ -50,6 +50,7 @@ export default class Auth {
       console.log("Ready to open or create dataset");
       this.client.openOrCreateDataset('fstrdr_dataset', (err, dataset) => {
         this._dataset = new Dataset(dataset, 'fstrdr');
+        // this._dataset.startSync();
       });
     }
 
@@ -143,7 +144,6 @@ export default class Auth {
       } else {
           console.log("User is null men ", this._user);
       }
-
       this.user = null;
     }
 }
