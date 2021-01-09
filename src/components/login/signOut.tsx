@@ -12,6 +12,7 @@ export default class SignOut extends React.Component {
 
     console.log('Here we go!! ', this.context.auth.loggedIn);
     await this.context.auth.signOut();
+    this.context.setLogged(false);
   }
 
   public render () {
