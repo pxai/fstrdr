@@ -33,7 +33,7 @@ export default class Auth {
        this.initSync();
     }
 
-    private initSync(): void {
+    protected initSync(): void {
       AWS.config.region = cognitoConfig.region;
 
       AWS.config.credentials = new AWS.CognitoIdentityCredentials({

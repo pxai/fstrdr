@@ -9,6 +9,9 @@ class FakeAuth extends Auth {
         this.userPool = userPool;
     }
 
+    protected initSync(): void {
+    }
+
     public get loggedIn (): boolean {
         return !!this.accessToken;
     }
