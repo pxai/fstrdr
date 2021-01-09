@@ -7,6 +7,9 @@ import Memory from './components/memory';
 import About from './components/about';
 import Reader from './components/reader';
 import Bookmarks from './components/bookmarks';
+import SignUp from './components/login/signup';
+import SignIn from './components/login/signin';
+import Recover from './components/login/recover';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +31,15 @@ export default function RootStack() {
       </Stack.Screen>
       <Stack.Screen name="Reader" options={{ title: 'Reader' }}>
         {props => <Page><Reader {...props} /></Page>}
+      </Stack.Screen>
+      <Stack.Screen name="SignUp" options={{ title: 'SignUp' }}>
+        {props => <Page><SignUp {...props} /></Page>}
+      </Stack.Screen>
+      <Stack.Screen name="SignIn" options={{ title: 'SignIn' }}>
+        {props => <Page><SignIn {...props} /></Page>}
+      </Stack.Screen>
+      <Stack.Screen name="Recover" options={{ title: 'Recover' }}>
+        {props => <Page><Recover {...props} /></Page>}
       </Stack.Screen>
       <Stack.Screen
         name="About"

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { SafeAreaView, View, Button } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 import useApi from '../../hooks/use_api';
@@ -14,7 +14,7 @@ import Menu from '../menu';
 
 class Home extends Component {
       public render() {
-        const { t , user } = this.props;
+        const { t , user, navigation } = this.props;
         console.log("Context: ", this.context, "Me: ", user);
 
         return (<SafeAreaView>
@@ -24,11 +24,15 @@ class Home extends Component {
               { this.context.loggedIn ? `YEAH` : `nasti `}
             </p>
             <div>This is home</div>
-            <SignUpForm />
-            <ConfirmForm />
-            <SignInForm />
-            <SignOut />
-            <Menu navigation={this.props.navigation} />
+            <Button
+              title="SignUp"
+              onPress={() => navigation.navigate('SignUp')}
+            />
+            <Button
+              title="SignIn"
+              onPress={() => navigation.navigate('SignIn')}
+            />
+            <Menu navigation={navigation} />
           </View>
         </SafeAreaView>);
       }

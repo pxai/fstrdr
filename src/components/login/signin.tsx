@@ -41,6 +41,8 @@ export default class SignInForm extends Component {
   }
 
   public render () {
+    const { navigation } = this.props;
+
     return (
       <div><h2>Sign In</h2>
       <form onSubmit={this.handleSubmit.bind(this)}>
@@ -53,7 +55,11 @@ export default class SignInForm extends Component {
                placeholder="Password"
                onChange={this.handlePasswordChange.bind(this)}/>
         <input type="submit"/>
-      </form></div>
+      </form>
+      <a href='javascript: void(0)' onClick={() => navigation.navigate('Recover')}>
+      Forgot password?
+      </a>
+      </div>
     );
   }
 }
