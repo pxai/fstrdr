@@ -48,17 +48,17 @@
     "typescript": "~4.0.0"
   },
   "scripts": {
-    "start": "expo start -w",
-    "start:local": "expo start -w --dev -c",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo web",
-    "eject": "expo eject",
-    "unit": "jest -u test/unit",
+    "start": "npx expo start -w",
+    "start:local": "npx expo start -w --dev -c",
+    "android": "npx expo start --android",
+    "ios": "npx expo start --ios",
+    "web": "npx expo web",
+    "eject": "npx expo eject",
+    "unit": "npx jest -u test/unit",
     "test": "npm run-script unit && npm run-script e2e",
     "cypress:open": "npx cypress open",
     "cypress:run": "npx cypress run",
-    "e2e": "start-server-and-test start:local http://localhost:19006/ cypress:run"
+    "e2e": "npx start-server-and-test start:local http://localhost:19006/ cypress:run"
   },
   "private": true
 }
