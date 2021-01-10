@@ -1,4 +1,4 @@
-import Auth from './Auth';
+import Auth from './auth';
 import User from '../model/user';
 
 class FakeAuth extends Auth {

@@ -7,6 +7,7 @@ import '../../../../src/i18n';
 import Api from '../../../../src/api/';
 import FakeAuth from '../../../../src/api/fake_auth';
 
+
 describe('Home componet', () => {
     let footer, context: ContextProps;
 
