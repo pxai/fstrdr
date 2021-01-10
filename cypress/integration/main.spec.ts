@@ -1,4 +1,4 @@
-describe.only("Main Content", function() {
+describe("Main Content", function() {
   beforeEach(() => {
     cy.visit("http://localhost:19006")
   });
