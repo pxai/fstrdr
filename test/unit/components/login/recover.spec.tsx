@@ -29,8 +29,8 @@ describe('Recover component', () => {
   });
 
   it('shows inputs', () => {
-    const menu = render(<Context.Provider value={context}><Recover /></Context.Provider>);
-    expect(menu.find('input[type=password]').length).toEqual(2);
+    const recover = render(<Context.Provider value={context}><Recover /></Context.Provider>);
+    expect(recover.find('input[type=password]').length).toEqual(2);
   });
 
 });
