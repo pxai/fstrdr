@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Context } from '../../context';
 import { withTranslation } from 'react-i18next';
 import Menu from '../menu';
+import SignOut from '../login/signout';
 
 class Footer extends Component {
     public render () {
@@ -17,6 +18,7 @@ class Footer extends Component {
           <p>
             Footer
           </p>
+          <SignOut />
         </View>
       </SafeAreaView>);
     }

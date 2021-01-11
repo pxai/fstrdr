@@ -110,13 +110,14 @@ export default class Auth {
         ];
 
         return new Promise((resolve, reject) => this._userPool.signUp(email, password, attributeList, null, (err, result) => {
+            console.log("Entrando: ", email);
             if (err) {
-              console.log(err);
-              reject(err);
+              console.log("Tengo puto error!", err);
+              return reject(err);
             }
-            console.log('user name is ' + result.user.getUsername());
-            console.log('call result: ' + result);
-
+            // console.log('user name is ' + result.user.getUsername());
+            // console.log('call result: ' + result);
+            console.log("We resolve!! ", result);
             resolve(result);
           })
       );

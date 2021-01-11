@@ -8,7 +8,8 @@ export default class SignInForm extends Component {
     this.state = {
       email: 'p@pello.io',
       password: '123456',
-      isSigninInProgress: false
+      isSigninInProgress: false,
+      error: ''
     };
   }
 
@@ -22,6 +23,7 @@ export default class SignInForm extends Component {
 
   private async handleSubmit(e) {
     e.preventDefault();
+    this.setState({ error: '' });
     const email = this.state.email.trim();
     const password = this.state.password.trim();
 
@@ -31,6 +33,7 @@ export default class SignInForm extends Component {
         console.log("SignIn correct!", result);
       } catch (error) {
           console.log("SignIn incorrect, ", error);
+          this.setState({ error });
       }
   }
 
@@ -45,6 +48,7 @@ export default class SignInForm extends Component {
 
     return (
       <div><h2>Sign In</h2>
+      <div>{this.state.error}</div>
       <form onSubmit={this.handleSubmit.bind(this)}>
         <input type="text"
                value={this.state.email}
@@ -56,7 +60,7 @@ export default class SignInForm extends Component {
                onChange={this.handlePasswordChange.bind(this)}/>
         <input type="submit"/>
       </form>
-      <a href='javascript: void(0)' onClick={() => navigation.navigate('Recover')}>
+      <a href='#' onClick={() => navigation.navigate('Recover')}>
       Forgot password?
       </a>
       </div>

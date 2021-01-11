@@ -17,10 +17,8 @@ export default class SignOut extends React.Component {
 
   public render () {
     return (
-      <div><h2>Sign Out</h2>
-      <button onClick={this.handleSubmit.bind(this)}>
-      Sign Out
-      </button>
+      <div>
+        <a href='#' onClick={this.handleSubmit.bind(this)}>Sign Out</a>
       </div>
     );
   }

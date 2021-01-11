@@ -9,6 +9,7 @@ export default class SignUpForm extends React.Component {
     this.state = {
       email: 'p@pello.io',
       password: '123456',
+      error: ''
     };
   }
 
@@ -22,19 +23,22 @@ export default class SignUpForm extends React.Component {
 
   private async handleSubmit(e) {
     e.preventDefault();
+    this.setState({ error: '' });
     const email = this.state.email.trim();
     const password = this.state.password.trim();
     try {
       const token = await this.context.auth.signUp(email, password);
-      console.log("SignUp correct!", token);
+      this.props.navigation('Confirm');
     } catch (error) {
-        console.log("Login incorrect, ", error);
+        console.log("SignUp incorrect, ", error);
+        this.setState({ error });
     }
   }
 
   public render () {
     return (
       <div><h2>Sign Up</h2>
+      <div>{this.state.error}</div>
       <form onSubmit={this.handleSubmit.bind(this)}>
         <input type="text"
                value={this.state.email}

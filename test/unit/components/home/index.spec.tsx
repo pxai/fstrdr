@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { render } from 'enzyme';
 import Home from '../../../../src/components/home';
+import SignInForm from '../../../../src/components/login/signin';
 import { Context, ContextProps } from '../../../../src/context';
 import '../../../../src/i18n';
 import Api from '../../../../src/api/';

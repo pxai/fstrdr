@@ -6,7 +6,8 @@ export default class ConfirmForm extends React.Component {
   public constructor(props) {
     super(props);
     this.state = {
-      code: ''
+      code: '',
+      error: ''
     };
   }
 
@@ -16,20 +17,24 @@ export default class ConfirmForm extends React.Component {
 
   private async handleSubmit(e) {
     e.preventDefault();
+    this.setState({ error: '' });
     const code = this.state.code.trim();
     const email = this.props.email || 'p@pello.io';
 
     try {
       const result = await this.context.auth.confirm(code, email);
       console.log("Confirm correct!", result);
+      this.props.navigation('SignIn');
     } catch (error) {
         console.log("Confirm incorrect, ", error);
+        this.setState({ error });
     }
   }
 
   public render () {
     return (
       <div><h2>Confirm</h2>
+      <div>{this.state.error}</div>
       <form onSubmit={this.handleSubmit.bind(this)}>
         <input type="text"
                value={this.state.code}
