@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import appConfig from "../../../config/cognito";
 import { Context } from '../../context';
+import { withTranslation } from 'react-i18next';
 
-export default class SignUpForm extends React.Component {
+class SignUpForm extends React.Component {
   public constructor(props) {
     super(props);
     this.state = {
@@ -31,14 +32,15 @@ export default class SignUpForm extends React.Component {
       this.props.navigation('Confirm');
     } catch (error) {
         console.log("SignUp incorrect, ", error);
-        this.setState({ error });
+        this.setState({ error: error.code });
     }
   }
 
   public render () {
+    const { t } = this.props;
     return (
       <div><h2>Sign Up</h2>
-      <div>{this.state.error}</div>
+      <div>{t(this.state.error)}</div>
       <form onSubmit={this.handleSubmit.bind(this)}>
         <input type="text"
                value={this.state.email}
@@ -55,3 +57,4 @@ export default class SignUpForm extends React.Component {
 }
 
 SignUpForm.contextType = Context;
+export default withTranslation()(SignUpForm);
