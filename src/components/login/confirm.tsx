@@ -24,10 +24,10 @@ export default class ConfirmForm extends React.Component {
     try {
       const result = await this.context.auth.confirm(code, email);
       console.log("Confirm correct!", result);
-      this.props.navigation('SignIn');
+      this.props.navigation.navigate('SignIn');
     } catch (error) {
         console.log("Confirm incorrect, ", error);
-        this.setState({ error });
+        this.setState({ error: error });
     }
   }
 

@@ -33,7 +33,7 @@ export default class SignInForm extends Component {
         console.log("SignIn correct!", result);
       } catch (error) {
           console.log("SignIn incorrect, ", error);
-          this.setState({ error });
+          this.setState({ error: error });
       }
   }
 

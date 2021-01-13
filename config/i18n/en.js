@@ -3,6 +3,8 @@ export default {
     'hello': 'Hello There',
     'memory': 'Memory',
     'reader': 'Fast Read',
-    'bookmarks': 'Bookmarks'
+    'bookmarks': 'Bookmarks',
+    'UsernameExistsException': 'Email field incorrect.',
+    'InvalidParameterException': 'Invalid Parameter Exception'
   }
 }

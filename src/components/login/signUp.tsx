@@ -29,10 +29,10 @@ class SignUpForm extends React.Component {
     const password = this.state.password.trim();
     try {
       const token = await this.context.auth.signUp(email, password);
-      this.props.navigation('Confirm');
+      this.props.navigation.navigate('Confirm');
     } catch (error) {
         console.log("SignUp incorrect, ", error);
-        this.setState({ error: error.code });
+        this.setState({ error: error });
     }
   }
 
@@ -40,7 +40,7 @@ class SignUpForm extends React.Component {
     const { t } = this.props;
     return (
       <div><h2>Sign Up</h2>
-      <div>{t(this.state.error)}</div>
+      <div>{t(this.state.error.code)}<div>{this.state.error.message}</div></div>
       <form onSubmit={this.handleSubmit.bind(this)}>
         <input type="text"
                value={this.state.email}
