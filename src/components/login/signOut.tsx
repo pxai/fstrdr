@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Context } from '../../context';
+import { withTranslation } from 'react-i18next';
 
-export default class SignOut extends React.Component {
+class SignOut extends React.Component {
   public constructor(props) {
     super(props);
   }
@@ -25,3 +26,4 @@ export default class SignOut extends React.Component {
 }
 
 SignOut.contextType = Context;
+export default withTranslation()(SignOut);

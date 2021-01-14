@@ -8,8 +8,13 @@ class ConfirmForm extends React.Component {
     super(props);
     this.state = {
       code: '',
+      email: '',
       error: ''
     };
+  }
+
+  private handleEmailChange(e) {
+    this.setState({email: e.target.value});
   }
 
   private handleCodeChange(e) {
@@ -20,7 +25,7 @@ class ConfirmForm extends React.Component {
     e.preventDefault();
     this.setState({ error: '' });
     const code = this.state.code.trim();
-    const email = this.props.email || 'p@pello.io';
+    const email = this.state.email.trim();
 
     try {
       const result = await this.context.auth.confirm(code, email);
@@ -39,6 +44,10 @@ class ConfirmForm extends React.Component {
       <div>{t('confirm_code')}</div>
       <div>{t(this.state.error.code)}<div>{this.state.error.message}</div></div>
       <form onSubmit={this.handleSubmit.bind(this)}>
+      <input type="text"
+             value={this.state.email}
+             placeholder="Email"
+             onChange={this.handleEmailChange.bind(this)}/>
         <input type="text"
                value={this.state.code}
                placeholder="Confirm code"

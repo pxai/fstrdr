@@ -10,6 +10,7 @@ export default {
     'signout': 'Sign Out',
     'UsernameExistsException': 'Email field incorrect.',
     'InvalidParameterException': 'Invalid Parameter Exception',
-    'confirm_code': 'Please check your email inbox for confirmation code'
+    'confirm_code': 'Please check your email inbox for confirmation code',
+    'LimitExceededException': 'Limit exceeded'
   }
 }

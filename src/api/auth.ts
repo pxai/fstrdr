@@ -94,8 +94,9 @@ export default class Auth {
                         this.openSync();
                         resolve(this.accessToken);
                     },
-                    onFailure: (reject) => {
+                    onFailure: (error) => {
                         console.log("Login error: ", reject);
+                        reject(error);
                     }
                 })
         );
@@ -130,6 +131,38 @@ export default class Auth {
           	console.log('Confirmed!! call result: ' + result);
             resolve(result);
           })
+      );
+    }
+
+    public forgotPassword (email: string): Promise<any> {
+      this.user = this.cognitoUser(email, this._userPool);
+
+      return new Promise((resolve, reject) => this.user.forgotPassword({
+                  onSuccess: (result) => {
+                      console.log("recover in: ", result);
+                      resolve(result);
+                  },
+                  onFailure: (error) => {
+                      console.log("Recover error: ", reject);
+                      reject(error);
+                  }
+              })
+      );
+    }
+
+    public confirmPassword (email: string, code: string, password: string): Promise<any> {
+      this.user = this.cognitoUser(email, this._userPool);
+
+      return new Promise((resolve, reject) => this.user.confirmPassword(code, password, {
+                  onSuccess: (result) => {
+                      console.log("Reset correct!: ", result);
+                      resolve(result);
+                  },
+                  onFailure: (error) => {
+                      console.log("Reset error: ", reject);
+                      reject(error);
+                  }
+              })
       );
     }
 

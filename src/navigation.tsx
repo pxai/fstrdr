@@ -10,6 +10,7 @@ import Bookmarks from './components/bookmarks';
 import SignUpForm from './components/login/signup';
 import Confirm from './components/login/confirm';
 import SignInForm from './components/login/signin';
+import Forgot from './components/login/forgot';
 import Recover from './components/login/recover';
 
 const Stack = createStackNavigator();
@@ -41,6 +42,9 @@ export default function RootStack() {
       </Stack.Screen>
       <Stack.Screen name="SignIn" options={{ title: 'SignIn' }}>
         {props => <Page><SignInForm {...props} /></Page>}
+      </Stack.Screen>
+      <Stack.Screen name="Forgot" options={{ title: 'Forgot Passowrd?' }}>
+        {props => <Page><Forgot {...props} /></Page>}
       </Stack.Screen>
       <Stack.Screen name="Recover" options={{ title: 'Recover' }}>
         {props => <Page><Recover {...props} /></Page>}

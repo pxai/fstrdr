@@ -23,7 +23,7 @@ class Home extends Component {
             </p>
             <div>This is home</div>
             { !this.context.loggedIn &&
-              (<Fragment><SignInForm />
+              (<Fragment><SignInForm {...this.props} />
               <a href='#' onClick={() => navigation.navigate('SignUp')}>
               {t('signup')}
               </a>
