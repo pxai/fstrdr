@@ -5,6 +5,7 @@ export default {
     'reader': 'Fast Read',
     'bookmarks': 'Bookmarks',
     'UsernameExistsException': 'Email field incorrect.',
-    'InvalidParameterException': 'Invalid Parameter Exception'
+    'InvalidParameterException': 'Invalid Parameter Exception',
+    'confirm_code': 'Please check your email inbox for confirmation code'
   }
 }

@@ -115,9 +115,6 @@ export default class Auth {
               console.log("Tengo puto error!", err);
               return reject(err);
             }
-            // console.log('user name is ' + result.user.getUsername());
-            // console.log('call result: ' + result);
-            console.log("We resolve!! ", result);
             resolve(result);
           })
       );
@@ -128,8 +125,7 @@ export default class Auth {
 
       return new Promise((resolve, reject) => this.user.confirmRegistration(code, true, function(err, result) {
           	if (err) {
-          		alert(err.message || JSON.stringify(err));
-          		reject(err);
+          		return reject(err);
           	}
           	console.log('Confirmed!! call result: ' + result);
             resolve(result);

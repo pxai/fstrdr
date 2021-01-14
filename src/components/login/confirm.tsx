@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Context } from '../../context';
+import { withTranslation } from 'react-i18next';
 
-export default class ConfirmForm extends React.Component {
+class ConfirmForm extends React.Component {
   public constructor(props) {
     super(props);
     this.state = {
@@ -32,9 +33,11 @@ export default class ConfirmForm extends React.Component {
   }
 
   public render () {
+    const { t } = this.props;
     return (
       <div><h2>Confirm</h2>
-      <div>{this.state.error}</div>
+      <div>{t('confirm_code')}</div>
+      <div>{t(this.state.error.code)}<div>{this.state.error.message}</div></div>
       <form onSubmit={this.handleSubmit.bind(this)}>
         <input type="text"
                value={this.state.code}
@@ -47,3 +50,4 @@ export default class ConfirmForm extends React.Component {
 }
 
 ConfirmForm.contextType = Context;
+export default withTranslation()(ConfirmForm);
