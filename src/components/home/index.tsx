@@ -24,10 +24,10 @@ class Home extends Component {
             <div>This is home</div>
             { !this.context.loggedIn &&
               (<Fragment><SignInForm />
-              <Button
-                title="SignUp"
-                onPress={() => navigation.navigate('SignUp')}
-              /></Fragment>)
+              <a href='#' onClick={() => navigation.navigate('SignUp')}>
+              {t('signup')}
+              </a>
+              </Fragment>)
             }
             <Menu navigation={navigation} />
           </View>

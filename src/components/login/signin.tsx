@@ -23,13 +23,13 @@ export default class SignInForm extends Component {
 
   private async handleSubmit(e) {
     e.preventDefault();
-    this.setState({ error: '' });
     const email = this.state.email.trim();
     const password = this.state.password.trim();
 
       try {
         const result = await this.context.auth.signIn(email, password);
         this.context.setLogged(true);
+        this.props.navigation.navigate('Home');
         console.log("SignIn correct!", result);
       } catch (error) {
           console.log("SignIn incorrect, ", error);

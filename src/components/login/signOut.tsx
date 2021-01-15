@@ -9,14 +9,13 @@ export default class SignOut extends React.Component {
 
   private async handleSubmit(e) {
     e.preventDefault();
-
-    console.log('Here we go!! ', this.context.auth.loggedIn);
     await this.context.auth.signOut();
     this.context.setLogged(false);
-    this.props.navigation.navigate('Home');
   }
 
   public render () {
+    if (!this.context.loggedIn) return null;
+
     return (
       <div>
         <a href='#' onClick={this.handleSubmit.bind(this)}>Sign Out</a>
